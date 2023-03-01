@@ -8,9 +8,9 @@ from sympy import Matrix
 import numpy as np
 
 B = np.array([[1,2,1],[3,4,5],[2,2,1]])
-#b = np.array([1/np.sqrt(14), 2/np.sqrt(14), 3/np.sqrt(14)])
+b = np.array([1/np.sqrt(14), 2/np.sqrt(14), 3/np.sqrt(14)])
 
-b = np.array([0.33038443, 0.86468049, 0.3783831])
+#b = np.array([0.33038443, 0.86468049, 0.3783831])
 
 def calculate_rayleigh_quotient(B, b):
     return b.T @ B @ b
@@ -19,7 +19,6 @@ print(calculate_rayleigh_quotient(B, b))
 
 #%% Uppgift 2b
 
-from sympy import Matrix
 import numpy as np
 import numpy.linalg as LA
 import math
@@ -59,3 +58,8 @@ def calculate_rayleigh_quotient(B, b):
     return b.T @ B @ b
 
 print(power_iteration(B, p))
+
+A = np.random.rand(500, 500)
+A = A + A.T
+print(power_iteration(A, p))
+print(LA.eig(A))
